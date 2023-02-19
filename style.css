@@ -2,3 +2,59 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+p {
+    margin: 20px;
+}
+
+.view-highscores-button {
+    /*Takes the document out of the document flow. It is positioned absolutly with reference to the closest parent that has a position relative value (ie:body)*/
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+
+.timer {
+    /*Takes the document out of the document flow. It is positioned absolutly with reference to the closest parent that has a position relative value (ie:body)*/
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.introduction {
+    text-align: center;
+}
+
+button:hover {
+    background-color: rgb(236, 245, 111);
+}
+
+/*Each multiple choice should be a selectable button*/
+.multiple-choice {
+    display: block;
+}
+
+/*Want to hide this information*/
+.hide {
+    display: none;
+}
+
+#final-score {
+    color: rgb(113, 70, 232);
+}
+
+/*Where input initials, input[type="text"] */
+input {
+    font-size: 100%;
+}
+
+
+
+/* This will be applied on any screen smaller than 768px */
+@media screen and (max-width: 768px) {
+
+}
+
+/* This will be applied on any screen smaller than 575px */
+@media screen and  (max-width: 575px) {
+
+}
