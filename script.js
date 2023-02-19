@@ -55,7 +55,7 @@ var feedbackEl = document.querySelector("#feedback");
 // var reStartBtn = document.querySelector("#restart");
 
 //Quiz Landing Page (Introduction)
-var currentQuestionIndex = 0;
+var liveQuestionIndex = 0;
 var time = questions.length * 15;
 var timerId;
 
@@ -83,6 +83,7 @@ function getQuestion() {
     multipchoiceEl.innerHTML = "";
     // forEach is used to run function for each array element
     liveQuestion.answers.forEach(function(choice, i) {
+        // Each multiple choice will be presented as a choice button
         var choiceBtn = document.createElement("button");
         // Value attribute is set to be updated to choice
         choiceBtn.setAttribute("value", choice);
