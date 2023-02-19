@@ -40,11 +40,11 @@ var questions = [
 // Returns a list of all id elements (id represented by #) with the word "___" in it
 var timerEl = document.querySelector("#timer");
 
-var startBtn = document.querySelector("#start");
+var startBtn = document.querySelector("#start-button");
 
 var questionsEl = document.querySelector("#questions");
 
-var multipechoiceEl = document.querySelector("#multiple-choice");
+var multipchoiceEl = document.querySelector("#multiple-choice");
 
 var submitBtn = document.querySelector("#submit-score");
 
@@ -61,7 +61,7 @@ var timerId;
 
 // Function triggered (Start quiz) and hide landing page
 function quizStart() {
-    timerId = setInterval(clockTick, 1000);
+    timerId = setInterval(clockTimer, 1000);
     // The textContent property returns the content of an element/node and all of its descendents(child nodes).
     // A little confused why this is needed
     timerEl.textContent = time;
@@ -93,7 +93,7 @@ function getQuestion() {
         // "Clickable"
         choiceBtn.onclick = questionClick;
         // The appendChild() method appends a node (element) as the last child of an element
-        choicesEl.appendChild(choiceBtn);
+        multipchoiceEl.appendChild(choiceBtn);
     });
 }
 
@@ -134,7 +134,7 @@ function quizEnd() {
     clearInterval(timerId);
     var endScreenEl = document.getElementById("quiz-end");
     endScreenEl.removeAttribute("class");
-    var finalScoreEl = document.getElementById("score-final");
+    var finalScoreEl = document.getElementById("final-score");
     // The final score text is equal to time (the remaining time after answered questions)
     finalScoreEl.textContent = time;
     // Gives ability to hide questions
@@ -170,6 +170,8 @@ function saveHighscore() {
       highscores.push(newScore);
       // The JSON.stringify() static method converts a JavaScript value to a JSON string
       window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+      location.href= 'highscores.html'
     }
 }
 
@@ -187,7 +189,7 @@ function checkForEnter(event) {
 }
 
 // Calls function checkForEnter when the user releases a key (onkeyup)
-nameEl.onkeyup = checkForEnter;
+initialsEl.onkeyup = checkForEnter;
 
 
 // Start quiz after clicking start quiz
