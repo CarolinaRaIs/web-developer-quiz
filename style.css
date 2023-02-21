@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&family=Tourney:wght@200&display=swap');
 *{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
 }
 
 p {
@@ -25,6 +26,11 @@ h1 {
 
 h2 {
     color: rgb(27, 27, 143);
+}
+
+#start-button {
+    /* use margin auto to center button */
+    margin: auto;
 }
 
 .view-highscores-button {
@@ -64,6 +70,7 @@ button {
     display: block;
 }
 
+
 /* Refernces submit button after finish quiz and submit initials input */
 #submit-score {
     display: inline;
@@ -74,6 +81,15 @@ button {
 .restart-button:hover,
 #start-button:hover {
     background-color: rgb(69, 188, 69);
+}
+
+.restart-button, 
+#clear-highscore-button {
+    display: inline;
+}
+
+#clear-highscore-button:hover {
+    background-color: rgb(251, 162, 162);
 }
 
 /*Each multiple choice should be a selectable button*/
@@ -87,9 +103,11 @@ button {
 }
 
 #final-score {
-    color: rgb(113, 70, 232);
+    color: rgb(42, 167, 226);
     font-size: 200%;
     font-family: 'Tourney', cursive;
+    padding: 15px;
+    font-weight: bolder;
 }
 
 /*Where input initials, input[type="text"] */
@@ -97,9 +115,7 @@ input {
     font-size: 100%;
 }
 
-#clear-highscore-button:hover {
-    background-color: rgb(251, 162, 162);
-}
+
 
 
 
