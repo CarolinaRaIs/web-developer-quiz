@@ -54,9 +54,9 @@ var feedbackEl = document.querySelector("#feedback");
 
 // var reStartBtn = document.querySelector("#restart");
 
-//Quiz Landing Page (Introduction)
+//Quiz landing page (Introduction)
 var liveQuestionIndex = 0;
-var time = questions.length * 15;
+var time = questions.length * 20;
 var timerId;
 
 // Function triggered (Start quiz) and hide landing page
@@ -75,61 +75,80 @@ function quizStart() {
 // Loop through array of questions and answers and present multiple choice as a list of buttons
 function getQuestion() {
     var liveQuestion = questions[liveQuestionIndex];
-    //
+    // promptEl = question-asked (retrieved from html (document) through getElementById)
     var promptEl = document.getElementById("question-asked")
     // The textContent in JS is a property used to set or get text content. It is used to return the text content of a specific node and its descendants.
     promptEl.textContent = liveQuestion.prompt;
     // The innerHTML property sets (or returns) the HTML content of an element. It is used to set text inside of an HTML tag (ie: Paragraoh, anchor, span, or div tag))
     multipchoiceEl.innerHTML = "";
     // forEach is used to run function for each array element
-    liveQuestion.answers.forEach(function(choice, i) {
-        // Each multiple choice will be presented as a choice button
-        var choiceBtn = document.createElement("button");
-        // Value attribute is set to be updated to choice
-        choiceBtn.setAttribute("value", choice);
-        //
-        choiceBtn.textContent = i + 1 + ". " + choice;
+    // execute function choice
+    // forEach(function (element, index)
+    // array = liveQuestion.answers
+    liveQuestion.answers.forEach(function(selectedAnswer, i) {
+        // Each multiple choice will be presented as a mulitplechoice button (created)
+        var multiplechoiceBtn = document.createElement("button");
+        // multiple choice value attribute is set to be updated to selectedAnswer
+        multiplechoiceBtn.setAttribute("value", selectedAnswer);
+        // multiple choice text is set to be = index + 1 + . + selectedAnswer
+        multiplechoiceBtn.textContent = i + 1 + ". " + selectedAnswer;
         // The onclick event allows the programmer to execute a JavaScript's function when an element gets clicked.
         // "Clickable"
-        choiceBtn.onclick = questionClick;
+        // addEventListener or onclick
+        // object.onclick = function(){myScript};              object is the target
+            //multiplechoiceBtn.onclick = questionClick;
+        // object.addEventListener(event, function);           object is the target
+        multiplechoiceBtn.addEventListener("click", questionClick);
+        //multiplechoiceBtn.onclick = questionClick;
         // The appendChild() method appends a node (element) as the last child of an element
-        multipchoiceEl.appendChild(choiceBtn);
+        multipchoiceEl.appendChild(multiplechoiceBtn);
     });
 }
 
 //  Conditional to check for right answers (else) deduct time for wrong answer, go to next question
 function questionClick() {
     // this.something is used to take an input and use it for “this” when running a function in relation to an Object.
+    // this is always a reference to an object (questionClick)
+    // if the question clicked is not equal to the answer (beginning from index 0).....
     if (this.value !== questions[liveQuestionIndex].answer) {
-      time -= 10;
-      if (time < 0) {
+        // deduct 10 seconds from the time...
+        // the time output is = (time - 10)
+        time -= 10;
+        // if time will result in less than 0, make time = 0....
+        if (time < 0) {
         time = 0;
-      }
-      timerEl.textContent = time;
-      feedbackEl.textContent = `Oops, not quite! The correct answer is ${questions[liveQuestionIndex].answer}.`;
-      feedbackEl.style.color = 'red';
+        }
+        // set timerEl text to time 
+        timerEl.textContent = time;
+        // set feedbackEl text to say "Oops, not quite! The correct answer is [questions answer]"
+        feedbackEl.textContent = `Oops, not quite! The correct answer is ${questions[liveQuestionIndex].answer}.`;
+        feedbackEl.style.color = 'red';
     } else {
-      feedbackEl.textContent = "Correct!";
-      feedbackEl.style.color = 'green';
+        feedbackEl.textContent = "Correct!";
+        feedbackEl.style.color = 'green';
     }
     // Class attribute is set to be updated to feedback
     feedbackEl.setAttribute("class", "feedback");
 
+    //setTimeout(functionReferenced, timer length in miliseconds)
     setTimeout(function() {
-        // Class attribute is set to be updated to feedback
+        // Class attribute is set to be updated to feedback hide
         feedbackEl.setAttribute("class", "feedback hide");
-    }, 2000);
+    }, 3000);
 
-    // If all questions have been answered, end quiz (else) get next question
+
+    // Increase from 0: 0, 1, 2, 3 .....
     liveQuestionIndex++;
+    // If all questions have been answered, end quiz...
     if (liveQuestionIndex === questions.length) {
-      quizEnd();
+        quizEnd();
+    // ... (else) get next question...
     } else {
-      getQuestion();
+        getQuestion();
     }
 }
 
-// When quiz ends: stop timer, hiding the questions, and showing the final score
+// When quiz ends: stop timer, hide the questions, and show the final score
 function quizEnd() {
     clearInterval(timerId);
     var endScreenEl = document.getElementById("quiz-end");
@@ -148,7 +167,7 @@ function clockTimer() {
     timerEl.textContent = time;
     // In theory time could be less than 0 if only have less than 10 seconds left in the quiz and you answer incorrectly (ie: 8-10 = -2)
     if (time <= 0) {
-      quizEnd();
+        quizEnd();
     }
 }
 
@@ -158,20 +177,20 @@ function saveHighscore() {
     // The trim() method removes whitespace from both ends of a string and returns a new string, without modifying the original string.
     var initials = initialsEl.value.trim();
     if (initials !== "") {
-      var highscores =
-        // Analyze (parse) highscores from window.localStorage and return an empty array
-        JSON.parse(window.localStorage.getItem("highscores")) || [];
-      var newScore = {
-        score: time,
-        initials: initials
-      };
-      // The push() method adds new items to the end of an array.
-      // Can continue to stack high score values
-      highscores.push(newScore);
-      // The JSON.stringify() static method converts a JavaScript value to a JSON string
-      window.localStorage.setItem("highscores", JSON.stringify(highscores));
+        var highscores =
+        // Turn string into object (parse)-->[highscores from window.localStorage and returned as an empty array]
+            JSON.parse(window.localStorage.getItem("highscores")) || [];
+        var newScore = {
+            score: time,
+            initials: initials
+        };
+         // The push() method adds new items to the end of an array.
+         // Can continue to stack high score values
+         highscores.push(newScore);
+         // The JSON.stringify() static method converts a JavaScript value to a JSON string
+         window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
-      location.href= 'highscores.html'
+        location.href= 'highscores.html'
     }
 }
 
@@ -188,10 +207,10 @@ function checkForEnter(event) {
     }
 }
 
-// Calls function checkForEnter when the user releases a key (onkeyup)
-initialsEl.onkeyup = checkForEnter;
-
+// Calls function checkForEnter when the user releases a key (keyup)
+initialsEl.addEventListener("keyup", checkForEnter);
 
 // Start quiz after clicking start quiz
 // Add.Event Listener vs onclick
-startBtn.onclick = quizStart;
+// object.addEventListener(event, function);           object is the target
+startBtn.addEventListener("click", quizStart);
