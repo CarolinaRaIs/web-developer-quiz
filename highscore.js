@@ -24,16 +24,18 @@ function printHighscores() {
         // Attach il element to ol element
         olEl.appendChild(liTag);
       });
-
 }
+
+printHighscores();
 
 // Clear all scores when users click clear button
 function clearHighscores() {
     // Clears highscores items from local storage
     window.localStorage.removeItem("highscores");
     // The reload() method does the same as the reload button in your browser.
+    // reloads highscore.html page
     window.location.reload();
-    // Called clear button (by ID) amd make it clickable (.onclick) so that it would trigger the function clearHighscores()
-  } document.getElementById("clear").onclick = clearHighscores;
-  
-printHighscores();
+    // Called clear button (by ID) amd make it clickable so that it would trigger the function clearHighscores() 
+    // object.addEventListener("event", function);           
+    // object/target = document.getElementById("clear-highscore-button") 
+} document.getElementById("clear-highscore-button").addEventListener("click", clearHighscores);   
