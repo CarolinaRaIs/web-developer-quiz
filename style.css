@@ -1,22 +1,49 @@
+/* Imported a google font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&family=Tourney:wght@200&display=swap');
 *{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 p {
+    color: rgb(27, 27, 143);
     margin: 20px;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+h1, h2 {
+    margin: 10px;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+h1 {
+    color: rgb(27, 27, 143);
+    background-color: rgb(124, 174, 243);
+    font-family: 'Tourney', cursive;
+}
+
+h2 {
+    color: rgb(27, 27, 143);
 }
 
 .view-highscores-button {
     /*Takes the document out of the document flow. It is positioned absolutly with reference to the closest parent that has a position relative value (ie:body)*/
     position: absolute;
     top: 15px;
+    margin: 5px;
+    padding: 5px;
     left: 20px;
+}
+
+.view-highscores-button:hover {
+    padding: 8px;
 }
 
 .timer {
     /*Takes the document out of the document flow. It is positioned absolutly with reference to the closest parent that has a position relative value (ie:body)*/
     position: absolute;
-    top: 15px;
+    top: 25px;
     right: 20px;
 }
 
@@ -26,6 +53,27 @@ p {
 
 button:hover {
     background-color: rgb(236, 245, 111);
+    padding: 12px;
+}
+
+button {
+    left: 300%;
+    padding: 10px;
+    /* margin: top left bottom right */
+    margin: 10px 20px 10px 20px;
+    display: block;
+}
+
+/* Refernces submit button after finish quiz and submit initials input */
+#submit-score {
+    display: inline;
+}
+
+/* Must use a # to represent an ID */
+#submit-score:hover, 
+.restart-button:hover,
+#start-button:hover {
+    background-color: rgb(69, 188, 69);
 }
 
 /*Each multiple choice should be a selectable button*/
@@ -40,11 +88,17 @@ button:hover {
 
 #final-score {
     color: rgb(113, 70, 232);
+    font-size: 200%;
+    font-family: 'Tourney', cursive;
 }
 
 /*Where input initials, input[type="text"] */
 input {
     font-size: 100%;
+}
+
+#clear-highscore-button:hover {
+    background-color: rgb(251, 162, 162);
 }
 
 
