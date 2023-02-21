@@ -9,19 +9,21 @@ function printHighscores() {
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
     // "Sorting an array with two factors"
     highscores.sort(function(a, b) {
-        return a.score - b.score;
+        return a.highscore - b.highscore;
     });
 
     // The forEach() method calls a function for each element in an array.
     // Calls function(score) for each element in the array highscores
-    highscores.forEach(function(score) {
+    highscores.forEach(function(highscore) {
         // Create li element in html
         var liTag = document.createElement("li");
         // li tag will read as: (score.name value)+ "-" + (score.score value)
-        liTag.textContent = score.name + " - " + score.score;
+        // .initials is (the key) where the initials is stores in Application in the Dev Console 
+        // the key .score has score values stored in Application 
+        liTag.textContent = highscore.initials + " - " + highscore.score;
         // Call ol element by its ID referenced as "highscores"
         var olEl = document.getElementById("highscores");
-        // Attach il element to ol element
+        // Attach li element to ol element
         olEl.appendChild(liTag);
       });
 }
