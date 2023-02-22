@@ -4,8 +4,7 @@ var questions = [
         // question 0
         prompt: "Commonly used data types do NOT include:",
         answers: ["Strings", "Booleans", "Alerts", "Numbers"],
-        // refers to literal placement not when index starts with 0
-        //ie: correct answer= booleans
+        // Correct answer: Booleans
         correctAnswer: "2"
     },
 
@@ -13,6 +12,7 @@ var questions = [
          // question 1
          prompt: "The condition in an if / else statement is enclosed within ____.",
          answers: ["Quotes", "Curly brackets", "Parentheses", "Square brackets"],
+         // Correct answer: Quotes
          correctAnswer: "1"
     },
 
@@ -20,6 +20,7 @@ var questions = [
          // question 2
          prompt: "Arrays in Javascript can be used to store ____.",
          answers: ["Numbers and strings", "Other arrays", "Booleans", "All of the above"],
+         // Correct answer: Booleans
          correctAnswer: "3"
     },
 
@@ -27,6 +28,7 @@ var questions = [
         // question 3
         prompt: "String values must be enclosed within ____ when being assigned to variables.",
         answers: ["Commmas", "Curly brackets", "Quotes", "Parentheses"],
+        // Correct answer: Curly brackets
         correctAnswer: "2"
     },
 
@@ -34,6 +36,7 @@ var questions = [
         // question 4
          prompt: "A very useful tool used during development and debugging for printing content to the debugger is:",
          answers: ["Javascript", "Terminal/Bash", "For loops", "console.log"],
+         // Correct answer: For loops
          correctAnswer: "3"
     }
 ];
