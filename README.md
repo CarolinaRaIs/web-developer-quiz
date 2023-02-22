@@ -32,10 +32,10 @@ The user will then be redirected to the "High Scores" page where the user's most
 
 
 To access the Github Repository visit:
-
+https://github.com/CarolinaRaIs/web-developer-quiz
 
 To access the deployed site visit:
-
+ https://carolinarais.github.io/web-developer-quiz/
 
 ## Credits
 
