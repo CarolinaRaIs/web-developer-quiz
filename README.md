@@ -3,11 +3,9 @@ A quiz testing web development knowledge.
 
 ## Description
 
-This site is to showcase Carolina Ramirez Islas' work samples so that employers can assess if they want to collaborate with her.
+This site is a full-stack web development assessment that simulates the type of multiple-choice assessment that would be administered by an employer as a part of the application process to obtain a job in web development. This site assists users familiarize themselves with these kind of tests and offers them feedback so that they can track their progress (highscores) and learn from incorrect answers.
 
-A portfolio of work can showcase skills and talents to employers looking to fill a part-time or full-time position. An effective portfolio highlights one's strongest work as well as the thought processes behind it. Having several deployed projects is a minimum requirement to receive an initial interview at many companies. 
-
-Flexbox, media queries, and CSS variables were some of the main components that were applied to this project for its success.
+Web API concepts like event listeners, timer intervals, window objects, and local storage objects, were applied to this project as well as flexbox, media queries, and CSS variables as some of the other main components that were applied to this project for its success.
 
 ![plot](./assets/images/2023portfolio.png)
 
