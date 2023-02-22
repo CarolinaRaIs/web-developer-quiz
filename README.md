@@ -15,6 +15,12 @@ N/A
 
 ## Usage
 
+The assessment will commence with a landing page that presents the user instructions and a "Start Quiz" button. To initiate the quiz click the "Start Quiz" button. 
+
+The user will then be asked 5 mulitple questions that can be answered by clicking any of the multiple choice options. Feedback concerning the accuracy of the answer will be immedietly provided after a selection has been made. 
+
+
+
 In this portfolio there are sections that contain information about myself, the work I've done, and my contact information. To navigate to different sections of the page; click on the topic of interest in the top navigation bar and you will be taken to the section of interest. If you click on the contact information located at the bottom of the page; you will be prompted to make contact via the method selected.
 
 To access the Github Repository visit:

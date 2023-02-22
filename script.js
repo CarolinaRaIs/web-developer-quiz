@@ -83,7 +83,7 @@ function getQuestion() {
     promptEl.textContent = liveQuestion.prompt;
     // The innerHTML property sets (or returns) the HTML content of an element. It is used to set text inside of an HTML tag (ie: Paragraoh, anchor, span, or div tag))
     multipchoiceEl.innerHTML = "";
-    // forEach is used to run function for each array element
+    // forEach is used to run function for each array element (loop)
     // execute function choice
     // forEach(function (element, index)
     // array = liveQuestion.answers
@@ -111,8 +111,8 @@ function getQuestion() {
 function questionClick() {
     // this.something is used to take an input and use it for “this” when running a function in relation to an Object.
     // this is always a reference to an object (questionClick)
-    // if the question clicked is not equal to the answer (beginning from index 0).....
-    if (this.value !== questions[liveQuestionIndex].answer) {
+    // if the question clicked is not equal to the answer (beginning from index 0 from questions variable array).....
+    if (this.value !== questions[liveQuestionIndex].correctAnswer) {
         // deduct 10 seconds from the time...
         // the time output is = (time - 10)
         time -= 10;
@@ -122,8 +122,8 @@ function questionClick() {
         }
         // set timerEl text to time 
         timerEl.textContent = time;
-        // set feedbackEl text to say "Oops, not quite! The correct answer is [questions answer]"
-        feedbackEl.textContent = `Oops, not quite! The correct answer is ${questions[liveQuestionIndex].answer}.`;
+        // set feedbackEl text to say "Oops, not quite! The correct answer is [questions[i] correct Answer (which is a string)]"
+        feedbackEl.textContent = `Oops, not quite! The correct answer is ${questions[liveQuestionIndex].correctAnswer}.`;
         feedbackEl.style.color = 'red';
     } else {
         feedbackEl.textContent = "Correct!";
